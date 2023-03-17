@@ -1,6 +1,7 @@
 const uploadFile = require("../middleware/upload");
 const fs = require("fs");
-const baseUrl = "http://192.168.1.129:8088/files/";
+//const baseUrl = "http://192.168.1.129:8088/files/";
+const baseUrl = "https://tomasmali.it/uploader/files/";
 
 const upload = async (req, res) => {
   try {
@@ -67,7 +68,7 @@ const download = (req, res) => {
 const remove = (req, res) => {
   const fileName = req.params.name;
   const directoryPath = __basedir + "/resources/static/assets/uploads/";
-
+console.log(fileName)
   fs.unlink(directoryPath + fileName, (err) => {
     if (err) {
       res.status(500).send({

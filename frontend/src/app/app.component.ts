@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'File Uploader by TOMMAL (MaxSize 10GB)';
+  title = 'File Uploader by TOMMAL';
 }

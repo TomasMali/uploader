@@ -4,11 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { FileSizePipe } from './file-size.pipe';
+import { OrderByPipe } from './order-by.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    FileSizePipe,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

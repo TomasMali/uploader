@@ -33,12 +33,24 @@
   {{ message }}
 </div>
 
-<div class="card mt-3">
-  <div class="card-header">List of Files</div>
-  <ul class="list-group list-group-flush">
-    <li *ngFor="let file of fileInfos | async" class="list-group-item">
-      <a href="{{ file.url }}">{{ file.name }}</a>   <button (click)="delete(file.name )" type="button" class="btn btn-sm btn-danger ml-5">Delete</button>
-
-    </li>
-  </ul>
-</div>
+ 
+<table class="table table-striped " style="margin-top: 60px;">
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Uploaded at</th>
+      <th>File Size</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let file of fileInfos | async | orderBy: 'createdAt':'desc' ">
+      <td><a href="{{ file.url }}">{{ file.name }}</a></td>
+      <td>{{ file.createdAt | date }}</td>
+      <td>{{ file.size | fileSize }}</td>
+      <td>
+        <button (click)="delete(file.name)" type="button" class="btn btn-sm btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

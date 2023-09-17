@@ -17,9 +17,11 @@ export class FileUploadComponent implements OnInit {
   fileInfos?: Observable<any>;
 
   constructor(private uploadService: FileUploadService) {}
+  
 
   ngOnInit(): void {
     this.fileInfos = this.uploadService.getFiles();
+
   }
 
   selectFile(event: any): void {
